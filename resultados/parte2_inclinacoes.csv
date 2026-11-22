@@ -1,0 +1,9 @@
+algoritmo,complexidade_teorica,inclinacao_loglog
+BFS,V + E,0.9383060383082688
+DFS,V + E,0.8744675201216944
+Dijkstra,(V+E) log V,0.8103107778036659
+Bellman-Ford,V·E,0.6473523004732109
+Kruskal,E log E,0.8871043557035498
+Prim,E log V,1.0002548366964126
+Tarjan (pontes),V + E,1.0062252920100376
+Floyd-Warshall,V³,0.9923838664249018

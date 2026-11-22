@@ -1,0 +1,14 @@
+Medida,Computada?,Valor
+Número de vértices,Sim,"1,899"
+Número de arestas,Sim,"20,296 (dirigido) / 13,838 (não dirigido)"
+"Grau mínimo, máximo e médio",Sim,"1, 255, 14.57"
+Distribuição de graus,Sim,figura distribuicao_graus
+Densidade,Sim,0.00768
+Número de componentes conexas,Sim,4
+Tamanho de cada componente,Sim,"[1893, 2, 2, 2]"
+Diâmetro,"Sim (maior componente, exato)",8
+Raio,"Sim (maior componente, exato)",4
+Comprimento médio dos caminhos,"Sim (maior componente, exato)",3.0552
+Coeficiente de clusterização médio,Sim,0.1094
+Número de triângulos,Sim (viável),"14,319"
+Visualização do grafo,Sim (versão reduzida),núcleo (core ≥ 17) e rede ego do maior hub

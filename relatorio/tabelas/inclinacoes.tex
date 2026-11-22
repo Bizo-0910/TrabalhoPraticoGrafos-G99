@@ -1,0 +1,19 @@
+\begin{table}
+  \caption{Inclinação do ajuste log-log do tempo observado em função da expressão teórica (por exemplo, $V+E$). Valor 1 indica que o tempo cresce como a fórmula prevê.}
+  \label{tab:inclinacoes}
+  \small
+  \begin{tabular}{llr}
+    \toprule
+    Algoritmo & Teórica & Inclinação \\
+    \midrule
+    BFS & $V + E$ & 0,94 \\
+    DFS & $V + E$ & 0,87 \\
+    Dijkstra & $(V+E) \log V$ & 0,81 \\
+    Bellman-Ford & $V\cdot E$ & 0,65 \\
+    Kruskal & $E \log E$ & 0,89 \\
+    Prim & $E \log V$ & 1,00 \\
+    Tarjan (pontes) & $V + E$ & 1,01 \\
+    Floyd-Warshall & $V^3$ & 0,99 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

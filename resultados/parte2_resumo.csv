@@ -1,0 +1,10 @@
+Algoritmo,Aplicado?,Resultado
+BFS,Sim,maior componente; alcança 1893 vértices
+DFS,Sim,maior componente; visita 1893 vértices
+Eulerianidade,Sim,não euleriano; 1062 vértices de grau ímpar (não dirigido); dirigido: 1692 com entrada ≠ saída
+Dijkstra,Sim (pesos 1/m > 0),distância máxima 3.430 a partir da fonte
+Bellman-Ford,Sim (pesos 1/m),sem ciclo negativo; 7 passadas até convergir (pior caso 1892)
+Floyd-Warshall,Sim,"grafo completo (1893 vértices), versão numpy; python puro só com n = 150"
+Tarjan (SCC),Sim,601 componentes fortemente conexas; maior com 1294
+Tarjan (pontes/articulações),Sim,395 pontes e 220 pontos de articulação
+Kruskal / Prim,Sim,"árvore geradora mínima, peso 746.150"

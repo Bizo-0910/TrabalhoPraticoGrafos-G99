@@ -1,0 +1,77 @@
+{
+ "n_mensagens": 59835,
+ "n_autoloops": 0,
+ "n": 1899,
+ "m_dirigido": 20296,
+ "m": 13838,
+ "dias": 193.7057986111111,
+ "graus": {
+  "nao_dirigido": {
+   "min": 1,
+   "max": 255,
+   "media": 14.573986308583464,
+   "mediana": 5.0,
+   "desvio": 24.459296070344905
+  },
+  "entrada": {
+   "min": 0,
+   "max": 137,
+   "media": 10.687730384412848,
+   "mediana": 5.0,
+   "desvio": 15.283141701995842
+  },
+  "saida": {
+   "min": 0,
+   "max": 237,
+   "media": 10.687730384412848,
+   "mediana": 3.0,
+   "desvio": 21.867592167708988
+  }
+ },
+ "densidade": 0.007678601848568738,
+ "densidade_dirigida": 0.005631048674611617,
+ "reciprocidade": 0.6363815530153725,
+ "assortatividade": -0.18777578714668028,
+ "n_isolados": 0,
+ "n_componentes": 4,
+ "tamanho_componentes": [
+  1893,
+  2,
+  2,
+  2
+ ],
+ "gc_n": 1893,
+ "gc_m": 13835,
+ "gc_fracao": 0.9968404423380727,
+ "diametro": 8,
+ "raio": 4,
+ "caminho_medio": 3.0551670838037994,
+ "hist_distancias": {
+  "1": 27670,
+  "2": 714390,
+  "3": 1952786,
+  "4": 810396,
+  "5": 72174,
+  "6": 3994,
+  "7": 142,
+  "8": 4
+ },
+ "triangulos": 14319,
+ "clust_medio": 0.10939892385364362,
+ "transitividade": 0.056830298909088986,
+ "core_max": 20,
+ "n_core_max": 201,
+ "visual_nucleo": {
+  "limiar_core": 17,
+  "n_nucleo": 341,
+  "n_comunidades": 9,
+  "modularidade": 0.2621621101293329
+ },
+ "visual_ego": {
+  "hub_id": 103,
+  "hub_grau": 255,
+  "hub_enviou": 149,
+  "hub_recebeu": 22,
+  "hub_ambos": 84
+ }
+}
