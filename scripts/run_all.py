@@ -13,7 +13,7 @@ import numpy as np
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, RAIZ)
-from src import tratamento as T, parte1, parte2, parte3, macros          # noqa: E402
+from src import tratamento as T, parte0, parte1, parte2, parte3, macros          # noqa: E402
 from src.util import salvar_json                                         # noqa: E402
 
 ap = argparse.ArgumentParser()
@@ -29,6 +29,9 @@ print('Tratamento...')
 d = T.construir(T.ler_mensagens(dados))
 T.salvar_processado(d, os.path.join(RAIZ, 'data', 'processed'))
 print(f'  {d.n} vértices | {d.g.m} arestas | maior componente: {d.gc.n}')
+
+print('Tratamento: etapas e estatísticas...')
+parte0.executar(d, res, fig)
 
 print('Parte I...')
 p1, _ = parte1.executar(d, res, fig, np.random.default_rng(a.seed))
