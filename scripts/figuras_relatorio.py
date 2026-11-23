@@ -51,6 +51,30 @@ def main():
     p1, p2, p3 = J('parte1.json'), J('parte2.json'), J('parte3.json')
     plt.rcParams.update(ESTILO)
 
+    # 0. tratamento dos dados (largura da página): arestas por etapa, mensagens por par e pesos
+    m_dir = sum(len(a) for a in d.out_adj)
+    arestas = [d.n_mensagens, d.n_mensagens - d.n_autoloops, m_dir, d.g.m, d.gc.m]
+    cont = np.array(list(d.msgs_nd.values()))
+    pesos = 1.0 / cont
+    fig, ax = plt.subplots(1, 3, figsize=(PAG, 2.0))
+    nomes_et = ['original', 'sem\nloops', 'dirigido', 'não\ndirigido', 'maior\ncomp.']
+    ax[0].bar(nomes_et, arestas, color=[C, C, A, A, V])
+    ax[0].set_ylim(0, max(arestas) * 1.18)
+    for i, vv in enumerate(arestas):
+        ax[0].text(i, vv + max(arestas) * .02, f'{vv:,}'.replace(',', '.'), ha='center', fontsize=5.5)
+    ax[0].set(ylabel='arestas', title='(a) Arestas após cada etapa')
+    ax[0].yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{int(x):,}'.replace(',', '.')))
+    ax[0].tick_params(axis='x', labelsize=5.5)
+    ks_, cs_ = np.unique(cont, return_counts=True)
+    ax[1].loglog(ks_, cs_ / cs_.sum(), 'o', ms=2.5, color=A)
+    ax[1].set(xlabel='mensagens trocadas pelo par (m)', ylabel='fração de pares',
+              title=f'(b) Mensagens por par ({100 * (cont == 1).mean():.0f}% trocam só 1)')
+    ax[2].hist(pesos, bins=40, color=LA, edgecolor='white', linewidth=.3)
+    ax[2].set_yscale('log')
+    ax[2].set(xlabel='peso w = 1/m', ylabel='nº de arestas (log)', title='(c) Pesos das arestas')
+    fig.tight_layout(pad=.5)
+    F._salvar(fig, SAIDA, 'tratamento')
+
     # 1. atividade semanal (uma coluna)
     with tamanho(COL, 1.9):
         F.atividade(d.tempos, SAIDA)

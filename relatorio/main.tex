@@ -81,6 +81,7 @@
 \ISSN{2966-2753}
 
 \usepackage{placeins}
+\graphicspath{{figuras/}{./}}
 \begin{document}
 
 \title[Grafo G99 -- CollegeMsg]{Quem escreve para quem: hubs, small-world e fragilidade na rede de mensagens do CollegeMsg}
@@ -146,6 +147,14 @@ Os números publicados pelo SNAP divergem entre a tabela-índice e a página do 
 \end{figure}
 
 \subsection{Tratamento}
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{tratamento.pdf}
+  \caption{Dados após o tratamento. (a) Número de arestas depois de cada etapa. (b) Fração de pares por número de mensagens trocadas, em escala log-log: a maioria troca poucas mensagens. (c) Distribuição dos pesos $w=1/m$ das arestas não dirigidas.}
+  \Description{Três painéis: barras com o número de arestas após cada etapa do tratamento, distribuição do número de mensagens por par em escala log-log e histograma dos pesos das arestas.}
+  \label{fig:trat}
+\end{figure*}
+
 Aplicamos, nesta ordem, os tratamentos da Tabela~\ref{tab:tratamento}: (i) remoção de auto-laços (nenhum encontrado); (ii) colapso do multigrafo em grafo simples, com uma aresta por par; (iii) versão não dirigida, com aresta $\{u,v\}$ se existe $u\to v$ ou $v\to u$; (iv) peso $w=1/m$, em que $m$ é o número de mensagens do par, de modo que pares que conversam mais ficam \emph{mais próximos} (peso positivo, necessário para Dijkstra); (v) restrição à maior componente conexa para as medidas de distância, com \tamMaiorComp{} vértices. Os dois formatos tratados estão versionados em \texttt{data/processed/}.
 
 \begin{table}
@@ -161,6 +170,23 @@ Aplicamos, nesta ordem, os tratamentos da Tabela~\ref{tab:tratamento}: (i) remo�
     Grafo estático simples dirigido & 1.899 & 20.296 \\
     Grafo estático simples não dirigido & 1.899 & 13.838 \\
     Maior componente conexa & 1.893 & 13.835 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+As etapas da Tabela~\ref{tab:tratamento} reduzem as \nMensagens{} mensagens a \nArestasND{} pares não dirigidos; os 6 vértices que ficam fora da maior componente formam três pares isolados. A Figura~\ref{fig:trat} e a Tabela~\ref{tab:pesos} descrevem os dados depois do tratamento. Cerca de 38\% dos pares trocam uma única mensagem (peso $w=1$) e a mediana é de 2 mensagens, mas alguns pares chegam a 184, o que dá pesos tão baixos quanto 0,005 (Figuras~\ref{fig:trat}b e~\ref{fig:trat}c). Além disso, 63,6\% dos pares são bidirecionais, isto é, houve mensagem nos dois sentidos.
+
+\begin{table}[t]
+  \caption{Mensagens por par (grafo não dirigido) e peso $w=1/m$ das arestas.}
+  \label{tab:pesos}
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{lrrrr}
+    \toprule
+    Variável & Mín. & Mediana & Média & Máx. \\
+    \midrule
+    Mensagens por par $m$ & 1 & 2 & 4,32 & 184 \\
+    Peso $w=1/m$ & 0,005 & 0,50 & 0,562 & 1,000 \\
     \bottomrule
   \end{tabular}
 \end{table}
