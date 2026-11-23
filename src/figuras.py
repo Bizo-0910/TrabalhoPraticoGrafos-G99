@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import networkx as nx
 
 AZUL, LARANJA, VERDE, CINZA, ROXO = '#2a6f97', '#e07a5f', '#5a9a6b', '#9aa5b1', '#81689d'
+LEG_FONTE = 8      
 PALETA = ['#2a6f97', '#e07a5f', '#5a9a6b', '#f2cc8f', '#81689d', '#3d405b']
 
 plt.rcParams.update({
@@ -263,7 +264,7 @@ def powerlaw(x, ajuste, comparacao, ols, ks_sint, p_valor, pasta, rotulo='grau')
     ax[0].axvline(kmin, color=CINZA, ls=':', lw=1)
     ax[0].set(xlabel=f'{rotulo} k', ylabel='P(K ≥ k)', title='(a) CCDF e ajustes')
     ax[0].set_ylim(P.min() / 2, 1.5)
-    ax[0].legend(fontsize=8, loc='lower left')
+    ax[0].legend(fontsize=LEG_FONTE, loc='lower left')
     # (b) PMF empírica e OLS
     k2, c2 = np.unique(x, return_counts=True)
     p2 = c2 / c2.sum()
@@ -273,7 +274,7 @@ def powerlaw(x, ajuste, comparacao, ols, ks_sint, p_valor, pasta, rotulo='grau')
                  label=f"reta log-log por MQO (γ = {ols['gamma_ols']:.2f})")
     ax[1].loglog(kk, pmf_pl(kk, g, kmin) * (x >= kmin).mean(), '-', color=VERDE, label=f'MLE (γ = {g:.2f})')
     ax[1].set(xlabel=f'{rotulo} k', ylabel='P(k)', title='(b) Reta do Apêndice B (MQO) × MLE')
-    ax[1].legend(fontsize=8, loc='lower left')
+    ax[1].legend(fontsize=LEG_FONTE, loc='lower left')
     # (c) bootstrap
     ax[2].hist(ks_sint, bins=20, color=CINZA, edgecolor='white')
     ax[2].axvline(ajuste['ks'], color=LARANJA, lw=2, label=f"KS observado = {ajuste['ks']:.3f}")
