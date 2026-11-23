@@ -20,7 +20,7 @@ Fonte: <https://snap.stanford.edu/data/CollegeMsg.html>.
 ```bash
 python3 -m venv venv && source venv/bin/activate      # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-python scripts/run_all.py            # pipeline completo (~7 min); --rapido para uma versão mais curta
+python scripts/run_all.py            
 jupyter notebook notebooks/analise.ipynb
 pytest -q                            # 28 testes: cada algoritmo é comparado com o NetworkX
 ```
@@ -35,6 +35,7 @@ A semente aleatória é fixa (42), exceto os tempos da Parte II, que dependem do
 data/CollegeMsg.txt            dataset original
 data/processed/                arestas tratadas (dirigidas e não dirigidas, com nº de mensagens e peso)
 src/tratamento.py              leitura, grafo temporal → estático, pesos, maior componente
+src/parte0.py                  tratamento: contagens e etapas (Tabela 1 do relatório)
 src/estrutura.py               Parte I: graus, distâncias exatas, clusterização, triângulos, k-core
 src/algoritmos.py              Parte II: BFS, DFS, Euler, Dijkstra, Bellman-Ford, Floyd-Warshall (python e numpy),
                                Tarjan (SCC, pontes, articulações), Kruskal, Prim
@@ -47,9 +48,15 @@ src/benchmark.py               tempo real, média, desvio padrão, IC (Z se n �
 src/parte1.py parte2.py parte3.py   orquestram cada parte e gravam tabelas/figuras
 src/figuras.py latex.py macros.py   figuras, tabelas LaTeX e macros para o relatório
 scripts/run_all.py             executa tudo
+scripts/gerar_notebook.py      recria notebooks/analise.ipynb
+scripts/gerar_tabelas_tex.py   gera as tabelas LaTeX a partir de resultados/
+scripts/figuras_relatorio.py   gera as figuras compactas do relatório
+notebooks/analise.ipynb        notebook com os resultados
 tests/                         pytest (cada algoritmo comparado com o NetworkX)
 resultados/                    CSV, JSON e macros.tex (números do relatório)
-figuras/                       PNG e PDF
+figuras/                       PNG e PDF (versões completas, do pipeline)
+relatorio/                     main.tex, sample-base.bib e 224215941.pdf (relatório final)
+relatorio/figuras/             figuras em PDF usadas no relatório
 ```
 
 Todos os algoritmos e métricas foram **implementados à mão**. O NetworkX é usado apenas nos testes
