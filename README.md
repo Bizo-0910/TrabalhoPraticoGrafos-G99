@@ -35,6 +35,7 @@ A semente aleatória é fixa (42), exceto os tempos da Parte II, que dependem do
 data/CollegeMsg.txt            dataset original
 data/processed/                arestas tratadas (dirigidas e não dirigidas, com nº de mensagens e peso)
 src/tratamento.py              leitura, grafo temporal → estático, pesos, maior componente
+src/util.py                    funções auxiliares (gravação de JSON, conversão de tipos numpy)
 src/parte0.py                  tratamento: contagens e etapas (Tabela 1 do relatório)
 src/estrutura.py               Parte I: graus, distâncias exatas, clusterização, triângulos, k-core
 src/algoritmos.py              Parte II: BFS, DFS, Euler, Dijkstra, Bellman-Ford, Floyd-Warshall (python e numpy),
