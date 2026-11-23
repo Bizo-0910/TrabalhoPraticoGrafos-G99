@@ -3,40 +3,119 @@
 % (gerado por scripts/run_all.py) e as tabelas de tabelas/*.tex (gerado por scripts/gerar_tabelas_tex.py).
 \documentclass[sigconf]{webmedia}
 
+
 \usepackage[brazilian]{babel}
 \usepackage{booktabs}
-\input{macros}
+% gerado automaticamente por scripts/run_all.py
+\newcommand{\nNos}{1.899}
+\newcommand{\nMensagens}{59.835}
+\newcommand{\nArestasDir}{20.296}
+\newcommand{\nArestasND}{13.838}
+\newcommand{\nDias}{193{,}7}
+\newcommand{\grauMin}{1}
+\newcommand{\grauMax}{255}
+\newcommand{\grauMedio}{14{,}57}
+\newcommand{\grauMediana}{5}
+\newcommand{\densidade}{0{,}00768}
+\newcommand{\reciprocidade}{63{,}6\%}
+\newcommand{\nComponentes}{4}
+\newcommand{\tamMaiorComp}{1.893}
+\newcommand{\diametro}{8}
+\newcommand{\raio}{4}
+\newcommand{\caminhoMedio}{3{,}055}
+\newcommand{\clustMedio}{0{,}109}
+\newcommand{\transitividade}{0{,}057}
+\newcommand{\nTriangulos}{14.319}
+\newcommand{\coreMax}{20}
+\newcommand{\assortatividade}{-0{,}188}
+\newcommand{\sigmaER}{14{,}5}
+\newcommand{\sigmaGrau}{1{,}23}
+\newcommand{\razaoCER}{14{,}4}
+\newcommand{\razaoLER}{0{,}991}
+\newcommand{\razaoCGrau}{1{,}24}
+\newcommand{\razaoLGrau}{1{,}006}
+\newcommand{\gammaPL}{2{,}83}
+\newcommand{\kminPL}{35}
+\newcommand{\nCaudaPL}{214}
+\newcommand{\pvalorPL}{0{,}02}
+\newcommand{\gammaOLS}{1{,}33}
+\newcommand{\RLognormal}{-3{,}9}
+\newcommand{\pLognormal}{0{,}07}
+\newcommand{\RExponencial}{2{,}0}
+\newcommand{\pExponencial}{0{,}71}
+\newcommand{\nRemovidos}{95}
+\newcommand{\AAleatorio}{0{,}939}
+\newcommand{\ARelAleatorio}{0{,}989}
+\newcommand{\BAleatorio}{20{,}8}
+\newcommand{\CAleatorio}{3{,}064}
+\newcommand{\DAleatorio}{1{,}1\%}
+\newcommand{\AAtaqueGrau}{0{,}793}
+\newcommand{\BAtaqueGrau}{289}
+\newcommand{\CAtaqueGrau}{3{,}795}
+\newcommand{\DAtaqueGrau}{15{,}6\%}
+\newcommand{\AAtaqueInterm}{0{,}763}
+\newcommand{\BAtaqueInterm}{339}
+\newcommand{\CAtaqueInterm}{3{,}698}
+\newcommand{\DAtaqueInterm}{18{,}1\%}
+\newcommand{\AAtaquePR}{0{,}827}
+\newcommand{\BAtaquePR}{228}
+\newcommand{\CAtaquePR}{3{,}618}
+\newcommand{\DAtaquePR}{12{,}3\%}
+\newcommand{\nPontes}{395}
+\newcommand{\nArticulacoes}{220}
+\newcommand{\nSCC}{601}
+\newcommand{\maiorSCC}{1294}
+\newcommand{\grausImpares}{1062}
+\newcommand{\pesoMST}{746{,}15}
+\newcommand{\topCincoMsgs}{47{,}0\%}
+\newcommand{\primeirasOitoSem}{79{,}7\%}
 
-\setcopyright{none}
-\settopmatter{printacmref=false}
-\renewcommand\footnotetextcopyrightpermission[1]{}
+\AtBeginDocument{%
+  \providecommand\BibTeX{{\normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
 
+\settopmatter{printacmref=false, printfolios=false}
+
+%% Evento (mantido do template WebMedia)
+\setevent{webmedia}
+\proceedingsDetails[WebMedia'2026]{Proceedings of the Brazilian Symposium on Multimedia and the Web}{2026}{Lavras/MG, Brazil}
+\ISSN{2966-2753}
+
+\usepackage{placeins}
 \begin{document}
 
-\title[Grafo G99 -- CollegeMsg]{Análise do Grafo G99 (CollegeMsg) do SNAP: Estrutura, Algoritmos e Propriedades de Redes Complexas}
+\title[Grafo G99 -- CollegeMsg]{Quem escreve para quem: hubs, small-world e fragilidade na rede de mensagens do CollegeMsg}
+\subtitle{Análise do grafo G99 (\emph{CollegeMsg}) do SNAP}
 
-% TODO: preencher nome completo e e-mail
-\author{Nome Completo da Aluna}
+\author{Beatriz Santos Oliveira}
 \affiliation{%
-  \institution{Universidade Federal da Bahia}
+  \institution{Matrícula 224215941 -- Instituto de Computação, Universidade Federal da Bahia}
   \city{Salvador}
   \state{BA}
   \country{Brasil}}
-\email{email@ufba.br}
+\email{bso@ufba.br}
 
-\renewcommand{\shortauthors}{Nome Completo da Aluna}
+\renewcommand{\shortauthors}{Beatriz Santos Oliveira}
 
 \begin{abstract}
-Este trabalho analisa o grafo G99 da coleção SNAP, a rede temporal de mensagens privadas \emph{CollegeMsg}, atribuída pela matrícula 224215941. Após converter a rede temporal em um grafo estático simples, caracterizamos sua estrutura (\nNos{} vértices, \nArestasND{} arestas não dirigidas), implementamos à mão os algoritmos clássicos de busca, caminhos mínimos, componentes e árvore geradora mínima, medindo seus tempos com intervalos de confiança, e investigamos mundo pequeno, lei de potência e robustez a falhas e ataques. A rede tem caminhos curtos (média \caminhoMedio) e agrupamento muito acima do esperado ao acaso, mas essa diferença se reduz a $\approx$\sigmaGrau{} quando se preservam os graus; a lei de potência é rejeitada ($p=\pvalorPL$); e a rede é robusta a falhas aleatórias, porém frágil a ataques a hubs. O código, os dados tratados e os testes estão no repositório público do trabalho.
+Este trabalho analisa o grafo G99 da coleção SNAP, a rede temporal de mensagens privadas \emph{CollegeMsg}, atribuída pela matrícula 224215941. Após converter a rede temporal em um grafo estático simples, caracterizamos sua estrutura (\nNos{} vértices, \nArestasND{} arestas não dirigidas), implementamos à mão os algoritmos clássicos de busca, caminhos mínimos, componentes e árvore geradora mínima, medindo seus tempos com intervalos de confiança, e investigamos small-world, lei de potência e robustez a falhas e ataques. A rede tem caminhos curtos (média \caminhoMedio) e agrupamento muito acima do esperado ao acaso, mas essa diferença se reduz a $\approx$\sigmaGrau{} quando se preservam os graus; a lei de potência é rejeitada ($p=\pvalorPL$); e a rede é robusta a falhas aleatórias, porém frágil a ataques a hubs. O código, os dados tratados e os testes estão no repositório público do trabalho.
 \end{abstract}
 
-\keywords{teoria dos grafos, redes complexas, mundo pequeno, lei de potência, robustez, SNAP}
+\keywords{Teoria dos Grafos, Redes Complexas, Small-World, Lei de Potência, Robustez, SNAP}
+
+\begin{teaserfigure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{grafo_nucleo.pdf}
+  \caption{Núcleo da rede CollegeMsg (vértices com $k$-core $\ge17$): poucos usuários de alto grau, no centro, concentram os contatos. O grafo completo tem \nNos{} vértices e \nArestasND{} arestas.}
+  \Description{Desenho do núcleo denso da rede de mensagens, com vértices maiores para graus maiores.}
+  \label{fig:teaser}
+\end{teaserfigure}
 
 \maketitle
 
 %--------------------------------------------------------------------
+\FloatBarrier
 \section{Introdução}
-Este relatório descreve a análise do grafo atribuído ao autor no trabalho prático \emph{Analisando Grafos do SNAP} da disciplina de Teoria dos Grafos. O trabalho tem três partes: (I) caracterização estrutural; (II) implementação e medição de algoritmos clássicos; e (III) investigação de propriedades de redes complexas (mundo pequeno, lei de potência, robustez). Todas as medidas foram calculadas com código próprio, e as bibliotecas prontas (NetworkX~\cite{hagberg2008}) foram usadas apenas para validar os resultados nos testes automatizados.
+Este relatório descreve a análise do grafo atribuído ao autor no trabalho prático \emph{Analisando Grafos do SNAP} da disciplina de Teoria dos Grafos. O trabalho tem três partes: (I) caracterização estrutural; (II) implementação e medição de algoritmos clássicos; e (III) investigação de propriedades de redes complexas (small-world, lei de potência, robustez). Todas as medidas foram calculadas com código próprio, e as bibliotecas prontas (NetworkX~\cite{hagberg2008}) foram usadas apenas para validar os resultados nos testes automatizados.
 
 \subsection*{Determinação do grafo}
 A função de atribuição é $f(M) = \big(S(M)\cdot(U(M)+1)\big) \bmod 129$, com $S$ a soma dos dígitos da matrícula e $U$ seus dois últimos dígitos (resultado 0 equivale a 129). Para $M = 224215941$:
@@ -49,17 +128,18 @@ A função de atribuição é $f(M) = \big(S(M)\cdot(U(M)+1)\big) \bmod 129$, co
 O grafo é, portanto, o \textbf{G99 = CollegeMsg}, mensagens privadas trocadas em uma rede social de estudantes da Universidade da Califórnia em Irvine~\cite{panzarasa2009,snap}.
 
 \subsection*{Repositório}
-Código, dados tratados, testes e instruções de execução estão em: \url{https://github.com/USUARIO/REPOSITORIO} % TODO: trocar pelo link real após o push
+Código, dados tratados, testes e instruções de execução estão em: \url{https://github.com/bizo-0910/TrabalhoPraticoGrafos-G99}
 
+\FloatBarrier
 \section{Grafo original e tratamento dos dados}
 \subsection{Descrição do grafo original}
-O arquivo \texttt{CollegeMsg.txt} tem uma linha por mensagem, no formato \texttt{origem destino instante}. São \nMensagens{} mensagens entre \nNos{} usuários ao longo de \nDias{} dias. Trata-se de um grafo temporal dirigido e um multigrafo, pois o mesmo par pode trocar muitas mensagens (Figura~\ref{fig:atividade}).
+O conjunto CollegeMsg é distribuído como um arquivo de texto com uma linha por mensagem, no formato \texttt{origem destino instante}. São \nMensagens{} mensagens entre \nNos{} usuários ao longo de \nDias{} dias. Trata-se de um grafo temporal dirigido e um multigrafo, pois o mesmo par pode trocar muitas mensagens. A Figura~\ref{fig:atividade} mostra que a atividade se concentra no início do período: \primeirasOitoSem{} das mensagens ocorrem nas oito primeiras semanas, e o grafo estático que analisamos resume, portanto, sobretudo uma fase inicial intensa.
 
 Os números publicados pelo SNAP divergem entre a tabela-índice e a página do conjunto: as colunas de arestas temporais e estáticas aparecem trocadas na tabela-índice. Contamos diretamente no arquivo e adotamos esses valores: \nMensagens{} arestas temporais e \nArestasDir{} arestas estáticas dirigidas (pares únicos origem$\to$destino).
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figuras/atividade_semanal.pdf}
+  \includegraphics[width=\columnwidth]{atividade_semanal.pdf}
   \caption{Mensagens por semana. A atividade se concentra no início do período: \primeirasOitoSem{} das mensagens ocorrem nas oito primeiras semanas.}
   \Description{Gráfico de barras com o número de mensagens por semana, decrescente ao longo do tempo.}
   \label{fig:atividade}
@@ -68,202 +148,250 @@ Os números publicados pelo SNAP divergem entre a tabela-índice e a página do 
 \subsection{Tratamento}
 Aplicamos, nesta ordem, os tratamentos da Tabela~\ref{tab:tratamento}: (i) remoção de auto-laços (nenhum encontrado); (ii) colapso do multigrafo em grafo simples, com uma aresta por par; (iii) versão não dirigida, com aresta $\{u,v\}$ se existe $u\to v$ ou $v\to u$; (iv) peso $w=1/m$, em que $m$ é o número de mensagens do par, de modo que pares que conversam mais ficam \emph{mais próximos} (peso positivo, necessário para Dijkstra); (v) restrição à maior componente conexa para as medidas de distância, com \tamMaiorComp{} vértices. Os dois formatos tratados estão versionados em \texttt{data/processed/}.
 
-\input{tabelas/tratamento}
-
-\section{Metodologia}
-Todos os algoritmos foram implementados em Python puro (\texttt{src/}), e cada um é comparado com o NetworkX nos 28 testes automatizados, inclusive em casos construídos (ciclo negativo, grafo desconexo, grafos eulerianos). A semente aleatória é fixa (42).
-
-\paragraph{Parte I.} Diâmetro, raio e caminho médio são exatos, por BFS a partir de cada vértice da maior componente. Clusterização média, transitividade, triângulos, núcleos $k$, assortatividade e reciprocidade são exatos.
-
-\paragraph{Parte II.} Cada algoritmo é executado 30 vezes (5 para Floyd--Warshall), descartando uma execução de aquecimento e com o coletor de lixo desativado. Reportamos média, desvio-padrão e IC de 95\%, calculado pela distribuição Normal quando $n\ge30$ e pela t-Student quando $n<30$. O crescimento observado é estimado pela inclinação do ajuste log-log do tempo em amostras crescentes de vértices.
-
-\paragraph{Parte III.} \emph{Mundo pequeno:} comparamos $C$ e $L$ com dois nulos, o aleatório $G(n,m)$~\cite{erdos1959} e o de mesmos graus (religações com preservação do grau~\cite{maslov2002}), e usamos o critério $L\approx L_{al}$ e $C\gg C_{al}$ de~\cite{watts1998}, resumido por $\sigma=(C/C_{al})/(L/L_{al})$~\cite{humphries2008}. \emph{Lei de potência:} estimativa por máxima verossimilhança discreta com $k_{\min}$ escolhido por KS, $p$-valor por \emph{bootstrap} e razão de verossimilhanças de Vuong~\cite{vuong1989} contra exponencial e lognormal~\cite{clauset2009}. \emph{Robustez:} removemos $r=\lceil 0{,}05\,n\rceil=\nRemovidos$ vértices, ao acaso (30 repetições) ou segundo um ranking fixo por grau, intermediação (Brandes~\cite{brandes2001}) ou PageRank~\cite{page1999}, e medimos A (fração na maior componente), B (número de componentes), C (caminho médio) e D (fração de isolados)~\cite{albert2000}.
-
-%--------------------------------------------------------------------
-\section{Resultados: Parte I}
-A rede tem \nNos{} vértices e \nArestasDir{} arestas dirigidas (\nArestasND{} não dirigidas). Os graus vão de \grauMin{} a \grauMax{}, com média \grauMedio{} e mediana \grauMediana{}, e a densidade é de apenas \densidade{} (Tabela~\ref{tab:medidas}). A distribuição é muito assimétrica (Figura~\ref{fig:graus}): poucos usuários concentram muitas conexões. Há \nComponentes{} componentes (tamanhos 1893, 2, 2 e 2); a maior contém quase todos os vértices.
-
-\begin{table}[t]
-  \caption{Medidas da Parte I. Distâncias calculadas na maior componente.}
-  \label{tab:medidas}
+\begin{table}
+  \caption{Etapas do tratamento: tamanho do grafo após cada etapa.}
+  \label{tab:tratamento}
   \small
-  \begin{tabular}{lr}
+  \begin{tabular}{p{4.2cm}rr}
     \toprule
-    Medida & Valor \\
+    Etapa & Vértices & Arestas \\
     \midrule
-    Vértices & \nNos \\
-    Arestas (dirigido / não dirigido) & \nArestasDir{} / \nArestasND \\
-    Grau mínimo / máximo / médio & \grauMin{} / \grauMax{} / \grauMedio \\
-    Densidade & \densidade \\
-    Componentes conexas & \nComponentes \\
-    Diâmetro / raio & \diametro{} / \raio \\
-    Caminho médio & \caminhoMedio \\
-    Clusterização média & \clustMedio \\
-    Transitividade & \transitividade \\
-    Triângulos & \nTriangulos \\
-    Núcleo $k$ máximo & \coreMax \\
-    Assortatividade de grau & \assortatividade \\
-    Reciprocidade & \reciprocidade \\
+    Arquivo original (1 linha = 1 mensagem) & 1.899 & 59.835 \\
+    Remoção de auto-loops & 1.899 & 59.835 \\
+    Grafo estático simples dirigido & 1.899 & 20.296 \\
+    Grafo estático simples não dirigido & 1.899 & 13.838 \\
+    Maior componente conexa & 1.893 & 13.835 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figuras/distribuicao_graus.pdf}
-  \caption{Distribuição de graus (não dirigido). A maioria dos usuários tem poucos contatos e uns poucos chegam a mais de 250.}
-  \Description{Histograma e distribuição acumulada complementar dos graus em escala logarítmica.}
-  \label{fig:graus}
-\end{figure}
+\FloatBarrier
+\section{Metodologia}
+Todos os algoritmos foram implementados em Python puro, e cada um é comparado com o NetworkX nos 28 testes automatizados, inclusive em casos construídos (ciclo negativo, grafo desconexo, grafos eulerianos). A semente aleatória é fixa (42).
 
-A maior componente tem diâmetro \diametro, raio \raio{} e caminho médio \caminhoMedio{} (Figura~\ref{fig:dist}): quase qualquer par de usuários está a três ou quatro passos. A clusterização média é \clustMedio{} e a transitividade, \transitividade{}; a diferença indica que os vértices de grau baixo, que dominam a média local, fecham triângulos com mais frequência que os hubs. A assortatividade negativa (\assortatividade{}) mostra que hubs se conectam a vértices de grau baixo, o que combina com um padrão de envio em massa (Tabela~\ref{sec:desc}). O núcleo $k$ máximo é \coreMax{} (Figura~\ref{fig:kcore}). A reciprocidade de \reciprocidade{} indica que a maioria dos pares que se escrevem recebe resposta.
+\paragraph{Parte I} Diâmetro, raio e caminho médio são exatos, por BFS a partir de cada vértice da maior componente. Clusterização média, transitividade, triângulos, núcleos $k$, assortatividade e reciprocidade são exatos.
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figuras/distancias.pdf}
-  \caption{Distribuição das distâncias entre pares na maior componente.}
-  \Description{Histograma das distâncias, com pico em três passos.}
-  \label{fig:dist}
-\end{figure}
+\paragraph{Parte II} Cada algoritmo é executado 30 vezes (5 para Floyd--Warshall), descartando uma execução de aquecimento e com o coletor de lixo desativado. Reportamos média, desvio-padrão e IC de 95\%, calculado pela distribuição Normal quando $n\ge30$ e pela t-Student quando $n<30$. O crescimento observado é estimado pela inclinação do ajuste log-log do tempo em amostras crescentes de vértices.
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figuras/kcore.pdf}
-  \caption{Tamanho dos núcleos $k$. O núcleo mais denso tem 201 vértices e $k=\coreMax$.}
-  \Description{Gráfico do número de vértices por valor de k-core.}
-  \label{fig:kcore}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figuras/grafo_nucleo.pdf}
-  \caption{Visualização do núcleo da rede (vértices com $k$-core $\ge17$). O grafo completo é ilegível; esta versão reduzida mostra a região densa.}
-  \Description{Desenho do subgrafo do núcleo, com vértices maiores para graus maiores.}
-  \label{fig:nucleo}
-\end{figure}
-
-Figura~\ref{fig:nucleo} mostra o núcleo da rede. Todas as medidas obrigatórias foram calculadas; nenhuma precisou ser aproximada.
+\paragraph{Parte III} \emph{Small-world:} comparamos $C$ e $L$ com dois nulos, o aleatório $G(n,m)$~\cite{erdos1959} e o de mesmos graus (religações com preservação do grau~\cite{maslov2002}), e usamos o critério $L\approx L_{al}$ e $C\gg C_{al}$ de~\cite{watts1998}, resumido por $\sigma=(C/C_{al})/(L/L_{al})$~\cite{humphries2008}. \emph{Lei de potência:} estimativa por máxima verossimilhança discreta com $k_{\min}$ escolhido por KS, $p$-valor por \emph{bootstrap} e razão de verossimilhanças de Vuong~\cite{vuong1989} contra exponencial e lognormal~\cite{clauset2009}. \emph{Robustez:} removemos $r=\lceil 0{,}05\,n\rceil=\nRemovidos$ vértices, ao acaso (30 repetições) ou segundo um ranking fixo por grau, intermediação (Brandes~\cite{brandes2001}) ou PageRank~\cite{page1999}, e medimos A (fração na maior componente), B (número de componentes), C (caminho médio) e D (fração de isolados)~\cite{albert2000}.
 
 %--------------------------------------------------------------------
+\FloatBarrier
+\section{Resultados: Parte I}
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{estrutura.pdf}
+  \caption{Estrutura do grafo não dirigido. (a) CCDF do grau: a maioria dos usuários tem poucos contatos e uns poucos passam de 250. (b) Distribuição das distâncias entre pares na maior componente. (c) Número de vértices por índice de núcleo $k$; o núcleo mais denso tem 201 vértices e $k=\coreMax{}$.}
+  \Description{Três painéis: distribuição acumulada complementar dos graus em escala log-log, histograma das distâncias com pico em três passos e número de vértices por núcleo k.}
+  \label{fig:estr}
+\end{figure*}
+
+\begin{table*}[t]
+  \caption{Medidas da Parte I: o que foi computado e como. Distâncias calculadas na maior componente.}
+  \label{tab:medidas}
+  \small
+  \begin{tabular}{llll}
+    \toprule
+    Medida & Computada? & Método & Valor \\
+    \midrule
+    Vértices / arestas (não dirigido) & Sim & contagem exata & \nNos{} / \nArestasND \\
+    Arestas dirigidas & Sim & pares origem$\to$destino únicos & \nArestasDir \\
+    Grau mínimo / máximo / médio & Sim & exato & \grauMin{} / \grauMax{} / \grauMedio \\
+    Distribuição de graus & Sim & histograma e CCDF & Figura~\ref{fig:estr}a \\
+    Densidade & Sim & fórmula & \densidade \\
+    Componentes e tamanhos & Sim & BFS & \nComponentes{} (1893, 2, 2, 2) \\
+    Diâmetro e raio & Sim & exato (BFS a partir de cada vértice, maior componente) & \diametro{} e \raio \\
+    Caminho médio & Sim & exato (maior componente) & \caminhoMedio \\
+    Clusterização média & Sim & exato & \clustMedio \\
+    Transitividade & Sim & exato & \transitividade \\
+    Triângulos & Sim & exato (viável) & \nTriangulos \\
+    Núcleo $k$ máximo & Sim & decomposição em núcleos, exata & \coreMax \\
+    Assortatividade de grau & Sim & exato & \assortatividade \\
+    Reciprocidade & Sim & exato (grafo dirigido) & \reciprocidade \\
+    Visualização & Sim & versão reduzida (núcleo) & Figura~\ref{fig:teaser} \\
+    \bottomrule
+  \end{tabular}
+\end{table*}
+
+A rede tem \nNos{} vértices e \nArestasDir{} arestas dirigidas (\nArestasND{} não dirigidas). Os graus vão de \grauMin{} a \grauMax{}, com média \grauMedio{} e mediana \grauMediana{}, e a densidade é de apenas \densidade{} (Tabela~\ref{tab:medidas}). A distribuição é muito assimétrica (Figura~\ref{fig:estr}a): poucos usuários concentram muitas conexões. Há \nComponentes{} componentes (tamanhos 1893, 2, 2 e 2); a maior contém quase todos os vértices.
+
+A maior componente tem diâmetro \diametro, raio \raio{} e caminho médio \caminhoMedio{} (Figura~\ref{fig:estr}b): quase qualquer par de usuários está a três ou quatro passos. Na Figura~\ref{fig:estr}b, a distância mais comum é 3 (cerca de 54,5\% dos pares ordenados), 97,9\% dos pares estão a até 4 passos e apenas 4 pares ordenados chegam ao diâmetro de \diametro{} passos. A clusterização média é \clustMedio{} e a transitividade, \transitividade{}; a diferença indica que os vértices de grau baixo, que dominam a média local, fecham triângulos com mais frequência que os hubs. A assortatividade negativa (\assortatividade{}) mostra que hubs se conectam a vértices de grau baixo, o que combina com um padrão de envio em massa (Seção~\ref{sec:desc}). O núcleo $k$ máximo é \coreMax{} (Figura~\ref{fig:estr}c): o núcleo mais interno reúne 201 vértices, cerca de 11\% da rede, em que cada um tem pelo menos 20 vizinhos dentro do próprio núcleo, o que mostra um centro denso cercado por muitos usuários de grau baixo. A reciprocidade de \reciprocidade{} indica que a maioria dos pares que se escrevem recebe resposta.
+
+O núcleo da rede está na Figura~\ref{fig:teaser}. Todas as medidas obrigatórias foram calculadas; nenhuma precisou ser aproximada.
+
+%--------------------------------------------------------------------
+\FloatBarrier
 \section{Resultados: Parte II}
 Tabela~\ref{tab:tempos} reúne a complexidade teórica e os tempos medidos. Os resultados foram validados entre si: Dijkstra, Bellman--Ford e Floyd--Warshall retornam as mesmas distâncias, e Prim e Kruskal, a mesma árvore geradora mínima, de peso \pesoMST{}.
 
 \paragraph{Resultados dos algoritmos.} BFS e DFS alcançam os \tamMaiorComp{} vértices da maior componente. O grafo \emph{não} é euleriano: há \grausImpares{} vértices de grau ímpar na maior componente (e 1.692 vértices com grau de entrada diferente do de saída no grafo dirigido). Bellman--Ford não encontra ciclo negativo (os pesos são positivos) e converge em poucas passadas (7 a 8), muito abaixo do pior caso de $V-1$, graças à parada antecipada. O algoritmo de Tarjan encontra \nSCC{} componentes fortemente conexas, sendo a maior com \maiorSCC{} vértices e 595 isoladas, além de \nPontes{} pontes e \nArticulacoes{} pontos de articulação, que são fragilidades estruturais relevantes para a Parte III.
 
-\input{tabelas/tempos}
-
-\paragraph{Tempos.} Os algoritmos lineares são os mais rápidos (BFS $\approx$1,1\,ms); Dijkstra, Kruskal e Prim ficam entre 4 e 13\,ms, e Bellman--Ford, em 14\,ms, é o mais lento dos algoritmos de fonte única. Floyd--Warshall é cúbico: no grafo inteiro, com a versão vetorizada, leva cerca de 24\,s (a matriz de 1893$^2$ distâncias ocupa $\approx$29\,MB com 64 bits). Em $n=150$, a versão em Python puro (206\,ms) é cerca de 46 vezes mais lenta que a vetorizada (4,5\,ms) com a mesma complexidade, o que mostra que a constante importa. Os tempos dependem do computador usado (Figura~\ref{fig:tempos}).
-
-\input{tabelas/inclinacoes}
-
-\paragraph{Complexidade observada.} Para cada algoritmo, ajustamos uma reta a $\log(\text{tempo})$ em função do logaritmo da expressão teórica (por exemplo, $V+E$ para a BFS), em amostras de vértices de tamanho crescente (de 100 até $n$). Uma inclinação próxima de 1 indica que o tempo cresce como a fórmula prevê. Tabela~\ref{tab:inclinacoes} e Figura~\ref{fig:complex} mostram inclinações entre 0,87 e 1,01 para BFS, DFS, Kruskal, Prim, Tarjan e Floyd--Warshall (para este, o tempo vai de 2,7\,ms com 100 vértices a 1,25\,s com 800, crescimento cúbico). Dijkstra (0,81) e, principalmente, Bellman--Ford (0,65) ficam abaixo de 1: no caso do Bellman--Ford, a parada antecipada faz o algoritmo terminar em poucas passadas, e não nas $V-1$ do pior caso; o valor $V\cdot E$ da teoria é, portanto, um limite superior pessimista para este grafo. As amostras de vértices alteram também a razão $m/n$, o que pode afetar os ajustes dos algoritmos lineares.% REVISAR: interpretação a confirmar/reescrever com as próprias palavras
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figuras/tempos_algoritmos.pdf}
-  \caption{Tempo médio de cada algoritmo na maior componente (com IC de 95\%).}
-  \Description{Gráfico de barras com os tempos médios por algoritmo, em escala logarítmica.}
-  \label{fig:tempos}
-\end{figure}
+\begin{table*}
+  \caption{Tempo de execução (média, desvio-padrão e IC de 95\%) na maior componente ($n=1893$, $m=13835$) e complexidade teórica. IC pela Normal quando $n\ge30$ e pela t-Student quando $n<30$. Incl.: inclinação do ajuste log-log do tempo observado em função da expressão teórica (por exemplo, $V+E$) em amostras crescentes de vértices; 1 indica que o tempo cresce como a fórmula prevê.}
+  \label{tab:tempos}
+  \small
+  \begin{tabular}{llrrrlr}
+    \toprule
+    Algoritmo & Complexidade & Rep. & Média & DP & IC 95\% & Incl. \\
+    \midrule
+    BFS & $O(V + E)$ & 30 & 1,09 ms & 0,17 ms & [1,03 ms; 1,15 ms] & 0,94 \\
+    DFS & $O(V + E)$ & 30 & 1,77 ms & 0,38 ms & [1,64 ms; 1,91 ms] & 0,87 \\
+    Eulerianidade & $O(V + E)$ & 30 & 1,37 ms & 0,22 ms & [1,29 ms; 1,45 ms] & -- \\
+    Dijkstra & $O((V + E) \log V)$ & 30 & 4,32 ms & 0,54 ms & [4,13 ms; 4,51 ms] & 0,81 \\
+    Bellman-Ford & $O(V\cdot E)$ & 30 & 14,00 ms & 1,22 ms & [13,56 ms; 14,43 ms] & 0,65 \\
+    Tarjan (SCC) & $O(V + E)$ & 30 & 2,82 ms & 0,27 ms & [2,73 ms; 2,92 ms] & -- \\
+    Tarjan (pontes) & $O(V + E)$ & 30 & 3,80 ms & 0,39 ms & [3,66 ms; 3,94 ms] & 1,01 \\
+    Kruskal & $O(E \log E)$ & 30 & 7,88 ms & 0,79 ms & [7,60 ms; 8,16 ms] & 0,89 \\
+    Prim & $O(E \log V)$ & 30 & 13,27 ms & 0,95 ms & [12,94 ms; 13,61 ms] & 1,00 \\
+    Floyd-Warshall & $O(V^3)$ & 5 & 23,62 s & 1,25 s & [22,07 s; 25,18 s] & 0,99 \\
+    Floyd-Warshall ($n=150$, python) & $O(V^3)$ & 10 & 206,25 ms & 34,04 ms & [181,91 ms; 230,60 ms] & -- \\
+    Floyd-Warshall ($n=150$, numpy) & $O(V^3)$ & 10 & 4,48 ms & 0,17 ms & [4,36 ms; 4,61 ms] & -- \\
+    \bottomrule
+  \end{tabular}
+\end{table*}
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{figuras/complexidade_observada.pdf}
+  \includegraphics[width=\textwidth]{complexidade_observada.pdf}
   \caption{Tempo observado versus tamanho da amostra (escala log-log), com a curva teórica ajustada.}
   \Description{Painéis com o tempo em função do tamanho para cada algoritmo, em escala log-log.}
   \label{fig:complex}
 \end{figure*}
 
+\paragraph{Tempos.} Os algoritmos lineares são os mais rápidos (BFS $\approx$1,1\,ms); Dijkstra, Kruskal e Prim ficam entre 4 e 13\,ms, e Bellman--Ford, em 14\,ms, é o mais lento dos algoritmos de fonte única. Floyd--Warshall é cúbico: no grafo inteiro, com a versão vetorizada, leva cerca de 24\,s (a matriz de 1893$^2$ distâncias ocupa $\approx$29\,MB com 64 bits). Em $n=150$, a versão em Python puro (206\,ms) é cerca de 46 vezes mais lenta que a vetorizada (4,5\,ms) com a mesma complexidade, o que mostra que a constante importa. Os tempos dependem do computador usado.
+
+\paragraph{Complexidade observada.} Para cada algoritmo, ajustamos uma reta a $\log(\text{tempo})$ em função do logaritmo da expressão teórica (por exemplo, $V+E$ para a BFS), em amostras de vértices de tamanho crescente (de 100 até $n$). Uma inclinação próxima de 1 indica que o tempo cresce como a fórmula prevê. A Tabela~\ref{tab:tempos} e a Figura~\ref{fig:complex} mostram inclinações entre 0,87 e 1,01 para BFS, DFS, Kruskal, Prim, Tarjan e Floyd--Warshall, ou seja, o tempo medido acompanha a teoria; no Floyd--Warshall, o tempo vai de 2,7\,ms com 100 vértices a 1,25\,s com 800, um crescimento cúbico. Dijkstra (0,81) e Bellman--Ford (0,65) ficaram abaixo de 1, isto é, cresceram menos do que a fórmula sugere. No Bellman--Ford, a explicação é a parada antecipada: o algoritmo termina quando uma passada não altera nenhuma distância, o que aqui ocorreu em 7 a 8 passadas e não nas $V-1$ do pior caso, de modo que $V\cdot E$ é um limite superior pessimista para este grafo. Para o Dijkstra não investigamos a causa; uma possibilidade é que o fator $\log V$ do \emph{heap} pese menos do que a fórmula supõe nos tamanhos testados. Como as amostras de vértices também alteram a razão $m/n$, as inclinações devem ser lidas como aproximações. A Figura~\ref{fig:complex} mostra, para cada algoritmo, os tempos medidos e a reta ajustada em escala log-log, de onde saem os valores da Tabela~\ref{tab:tempos}.
+
 %--------------------------------------------------------------------
+\FloatBarrier
 \section{Resultados: Parte III}
+Nesta parte investigamos se a rede é um small-world, se a distribuição de graus segue uma lei de potência e quão robusta ela é a falhas e a ataques. Em seguida, relatamos o padrão que mais nos chamou atenção e comparamos a rede com modelos clássicos.
 
-\subsection{Questão 1: a rede é um mundo pequeno?}
-\textbf{Sim em relação ao grafo aleatório; só parcialmente em relação ao nulo de mesmos graus.} A maior componente tem $C=0{,}1097$ e $L=\caminhoMedio$. Contra $G(n,m)$, $C/C_{al}=\razaoCER$ e $L/L_{al}=\razaoLER$, portanto $L\approx L_{al}$ e $C\gg C_{al}$, com $\sigma\approx\sigmaER$ (Tabela~\ref{tab:smallworld}, Figura~\ref{fig:sw}). Pelo critério do enunciado, a rede é um mundo pequeno.
+\subsection{Small-world: caminhos curtos e agrupamento}
+Para avaliar se a rede é small-world, comparamos o agrupamento e o caminho médio da maior componente ($C=0{,}1097$ e $L=\caminhoMedio$) com os de grafos aleatórios equivalentes. Contra $G(n,m)$, $C/C_{al}=\razaoCER$ e $L/L_{al}=\razaoLER$, portanto $L\approx L_{al}$ e $C\gg C_{al}$, com $\sigma\approx\sigmaER$ (Tabela~\ref{tab:smallworld}). Pelo critério clássico, a rede apresenta a propriedade small-world, o que é plausível para uma rede social de estudantes, em que há grupos de conhecidos e alguns usuários muito conectados que encurtam os caminhos. Na prática, isso significa que informação, mensagens ou convites se propagam por poucos intermediários: em média cerca de \caminhoMedio{} passos separam dois usuários, de modo que algo enviado por um usuário pode alcançar quase toda a rede em poucas retransmissões. Isso favorece a difusão rápida de informação, mas também a de conteúdo indesejado, como \emph{spam}.
 
-\input{tabelas/smallworld}
+\begin{table}
+  \caption{Teste de small-world na maior componente. Médias de 20 amostras de cada modelo nulo (distâncias estimadas com 500 fontes).}
+  \label{tab:smallworld}
+  \small
+  \begin{tabular}{lrrrr}
+    \toprule
+    Grafo & $C$ & $L$ & $C/C_{al}$ & $L/L_{al}$ \\
+    \midrule
+    Observado & 0,1097 & 3,055 & -- & -- \\
+    Aleatório $G(n,m)$ & 0,0076 & 3,083 & 14,4 & 0,991 \\
+    Mesmos graus & 0,0885 & 3,037 & 1,24 & 1,006 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-Esse resultado é, porém, inflado pela presença de hubs, pois $G(n,m)$ não reproduz a heterogeneidade de graus. Contra o nulo que preserva a sequência de graus, $C/C_{al}=\razaoCGrau$ e $L/L_{al}=\razaoLGrau$, e $\sigma$ cai para \sigmaGrau{}. A maior parte do agrupamento, portanto, \emph{decorre da distribuição de graus}, e só uma parcela pequena (cerca de 24\%) é estrutura adicional. Na prática, a rede é de fato bem conectada por poucos passos, mas o agrupamento não indica comunidades fortes por si só.% REVISAR: interpretação
+Esse resultado, porém, não deve ser lido isoladamente, pois $G(n,m)$ distribui as arestas ao acaso e não reproduz os hubs da rede. Quando o nulo preserva a sequência de graus, $C/C_{al}=\razaoCGrau$ e $L/L_{al}=\razaoLGrau$, e o $\sigma$ cai de \sigmaER{} para \sigmaGrau{}. Ou seja, boa parte do agrupamento alto aparece mesmo em um grafo embaralhado com os mesmos graus: ela decorre da distribuição de graus, e o $C$ observado é apenas cerca de 24\% maior que o do nulo. Assim, a rede é small-world em relação ao grafo aleatório, mas só parcialmente em relação ao nulo de mesmos graus. Nossa leitura é que os caminhos curtos são de fato uma propriedade da rede, mas o agrupamento, sozinho, não é evidência de comunidades fortes.
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figuras/smallworld.pdf}
-  \caption{Comparação de $C$, $L$ e $\sigma$ com os dois modelos nulos.}
-  \Description{Barras com os valores de C, L e sigma para a rede observada e os nulos.}
-  \label{fig:sw}
-\end{figure}
-
-\subsection{Questão 2: a distribuição de graus segue uma lei de potência?}
-\textbf{Não.} Uma regressão linear em escala log-log sobre $P(k)$ daria $\gamma\approx\gammaOLS$, valor abaixo de 2 e que não corresponde a uma distribuição normalizável; essa regressão é enviesada pela cauda ruidosa e \emph{não} deve ser usada. A estimativa por máxima verossimilhança, com $k_{\min}=\kminPL$ escolhido por KS e \nCaudaPL{} vértices na cauda, dá $\gamma=\gammaPL$, mas o teste de \emph{bootstrap} rejeita a hipótese ($p=\pvalorPL<0{,}1$). A razão de verossimilhanças favorece a lognormal ($R=\RLognormal$, $p=\pLognormal$) e não distingue a exponencial ($R=\RExponencial$, $p=\pExponencial$) (Figura~\ref{fig:pl}). Além disso, $\gamma$ não é estável: ao variar $k_{\min}$ de 1 a 30, vai de 1,44 a 2,72. Conclusão: a cauda é pesada, mas a lei de potência não é um bom modelo. Implicação: previsões baseadas em redes livres de escala (por exemplo, ausência de limiar de percolação) não se aplicam diretamente.
+\subsection{Distribuição de graus e lei de potência}
+Começamos pela abordagem sugerida no enunciado: uma regressão linear em escala log-log sobre $P(k)$ daria $\gamma\approx\gammaOLS$, valor abaixo de 2 e que não corresponde a uma distribuição normalizável; essa regressão é enviesada pela cauda ruidosa e \emph{não} deve ser usada. Por isso recorremos à estimativa por máxima verossimilhança que, com $k_{\min}=\kminPL$ escolhido por KS e \nCaudaPL{} vértices na cauda, dá $\gamma=\gammaPL$, mas o teste de \emph{bootstrap} rejeita a hipótese ($p=\pvalorPL<0{,}1$). A razão de verossimilhanças favorece a lognormal ($R=\RLognormal$, $p=\pLognormal$) e não distingue a exponencial ($R=\RExponencial$, $p=\pExponencial$) (Figura~\ref{fig:pl}). Além disso, $\gamma$ não é estável: ao variar $k_{\min}$ de 1 a 30, vai de 1,44 a 2,72. Em resumo, a distribuição de graus tem cauda pesada, mas não sugere de fato uma lei de potência, e a lognormal descreve melhor a cauda. Isso importa porque previsões baseadas em redes livres de escala (por exemplo, ausência de limiar de percolação) não se aplicam diretamente a esta rede.
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{figuras/lei_de_potencia.pdf}
-  \caption{Distribuição de graus em escala log-log com os ajustes: máxima verossimilhança na cauda e regressão por mínimos quadrados.}
+  \includegraphics[width=\textwidth]{lei_de_potencia.pdf}
+  \caption{Lei de potência. (a) CCDF dos graus com os ajustes de lei de potência, lognormal e exponencial na cauda. (b) $P(k)$ com a reta por mínimos quadrados e o ajuste por máxima verossimilhança. (c) KS das amostras sintéticas do \emph{bootstrap} contra o KS observado.}
   \Description{CCDF dos graus com os ajustes de lei de potência, lognormal e exponencial.}
   \label{fig:pl}
 \end{figure*}
 
-\subsection{Questão 3: robustez a falhas e ataques}
-\textbf{A rede é robusta a falhas aleatórias e frágil a ataques a hubs.} Removendo $r=\nRemovidos$ vértices ao acaso (30 repetições), a maior componente mantém \AAleatorio{} dos vértices ($A_{rel}=\ARelAleatorio$ da componente original), e o caminho médio quase não muda (\CAleatorio{}). Com o mesmo número de remoções dirigidas, A cai para \AAtaqueGrau{} (grau), \AAtaqueInterm{} (intermediação) e \AAtaquePR{} (PageRank), o número de componentes sobe para 228--339 (contra cerca de 21 na remoção aleatória), o caminho médio sobe para até \CAtaqueGrau{} e até \DAtaqueInterm{} dos vértices ficam isolados (Tabela~\ref{tab:robustez}, Figuras~\ref{fig:rob} e~\ref{fig:curvas}).
+\subsection{Robustez a falhas e a ataques}
+Para medir a robustez, removemos $r=\nRemovidos$ vértices (5\% da rede) de duas formas: ao acaso, simulando falhas, e escolhendo os mais centrais por grau, intermediação ou PageRank, simulando ataques. Em resumo, a rede resiste bem a falhas aleatórias, mas se fragmenta quando os alvos são os hubs. Nas 30 repetições da remoção aleatória, a maior componente mantém \AAleatorio{} dos vértices ($A_{rel}=\ARelAleatorio$ da componente original), e o caminho médio quase não muda (\CAleatorio{}). Com o mesmo número de remoções dirigidas, A cai para \AAtaqueGrau{} (grau), \AAtaqueInterm{} (intermediação) e \AAtaquePR{} (PageRank), o número de componentes sobe para 228--339 (contra cerca de 21 na remoção aleatória), o caminho médio sobe para até \CAtaqueGrau{} e até \DAtaqueInterm{} dos vértices ficam isolados (Tabela~\ref{tab:robustez} e Figura~\ref{fig:rob}).
 
-\input{tabelas/robustez}
+\begin{table}[t]
+  \caption{Robustez após remover $r=95$ vértices (5\% de $n$). A: fração na maior componente; B: nº de componentes; C: caminho médio na maior componente; D: fração de vértices isolados. Na remoção aleatória, média e desvio-padrão (DP) de 30 repetições; os ataques usam ranking fixo.}
+  \label{tab:robustez}
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{lrrrr}
+    \toprule
+    Remoção & A & B & C & D \\
+    \midrule
+    Grafo íntegro & 1,000 & 1 & 3,055 & 0,0\% \\
+    \midrule
+    Aleatória (média) & 0,939 & 20,8 & 3,064 & 1,1\% \\
+    Aleatória (DP) & 0,005 & 8,5 & 0,015 & 0,5\% \\
+    \midrule
+    Ataque: grau & 0,793 & 289 & 3,795 & 15,6\% \\
+    Ataque: intermediação & 0,763 & 339 & 3,698 & 18,1\% \\
+    Ataque: PageRank & 0,827 & 228 & 3,618 & 12,3\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-A intermediação é a estratégia mais danosa para A, B e D; o PageRank é a menos danosa dentre as três. Nas curvas até 30\% de remoção, a maior componente com remoção aleatória ainda tem 65\% dos vértices, mas, com remoção por grau, cai para 4\% (e por intermediação, para 10\%). O padrão é típico de redes heterogêneas~\cite{albert2000}. Implicação: se os hubs forem o alvo (contas desativadas, por exemplo), a rede se fragmenta com rapidez; a proteção deve se concentrar neles.
+A intermediação é a estratégia mais danosa para A, B e D; o PageRank é a menos danosa dentre as três. Nas curvas até 30\% de remoção, a maior componente com remoção aleatória ainda tem 65\% dos vértices, mas, com remoção por grau, cai para 4\% (e por intermediação, para 10\%). O padrão é típico de redes heterogêneas~\cite{albert2000}. Na prática, se os hubs forem o alvo (contas desativadas, por exemplo), a rede se fragmenta com rapidez; a proteção deve se concentrar neles. Na linha superior da Figura~\ref{fig:rob}, as 30 remoções aleatórias ficam concentradas perto do grafo íntegro (A entre 0,923 e 0,945), enquanto os três ataques caem bem fora dessa faixa; a linha inferior mostra que essa diferença cresce com a fração removida.
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{figuras/robustez_boxplot.pdf}
-  \caption{Métricas A--D após remover 5\% dos vértices. \emph{Boxplots}: 30 remoções aleatórias; marcadores: ataques com ranking fixo.}
-  \Description{Boxplots das quatro métricas de robustez para remoção aleatória e pontos para os ataques.}
+  \includegraphics[width=\textwidth]{robustez.pdf}
+  \caption{Robustez após remover 5\% dos vértices e ao longo da remoção. \emph{Linha superior:} métricas A--D; \emph{boxplots} de 30 remoções aleatórias e marcadores para os ataques com ranking fixo. \emph{Linha inferior:} as mesmas métricas conforme a fração removida (até 30\%); a faixa é $\pm1$ desvio-padrão da remoção aleatória e a linha pontilhada marca 5\%.}
+  \Description{Duas linhas de quatro painéis: boxplots das métricas de robustez com pontos dos ataques e curvas de fragmentação em função da fração removida.}
   \label{fig:rob}
 \end{figure*}
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figuras/robustez_curvas.pdf}
-  \caption{Fração na maior componente conforme a fração removida (até 30\%).}
-  \Description{Curvas de fragmentação para remoção aleatória e para os três ataques.}
-  \label{fig:curvas}
-\end{figure}
-
-\subsection{Questão 4: descoberta mais interessante}
+\subsection{O que mais chamou atenção: hubs que enviam em massa}
 \label{sec:desc}
-\textbf{Os hubs da rede são remetentes em massa, não participantes de conversas.} Entre os 20 usuários de maior grau, o grau de saída médio é cerca de 159 contra 80 de entrada, e apenas 43\% de seus destinatários respondem, contra 64\% no conjunto da rede. A reciprocidade cai com o grau, de 74--79\% para graus entre 2 e 31, até 44\% para grau $\ge128$ (Figura~\ref{fig:desc}). Os 5\% de usuários que mais enviam produzem \topCincoMsgs{} das mensagens. Isso explica a assortatividade negativa e a fragilidade a ataques: os hubs sustentam a conectividade, mas não por laços recíprocos. A rede de mensagens privadas é, em suma, mais um sistema de difusão a partir de poucos emissores do que um conjunto de conversas simétricas. Outros números: 38\% dos pares trocam uma única mensagem, e os pares com 10 ou mais mensagens (cerca de 10\% dos pares) concentram 46\% do tráfego; a mediana entre a primeira mensagem de cada sentido em pares recíprocos (6.458) é de 3,9\,h.% REVISAR: interpretação do padrão de envio em massa
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{figuras/descobertas.pdf}
-  \caption{Comportamento dos hubs: reciprocidade por faixa de grau e concentração das mensagens.}
-  \Description{Painéis com reciprocidade por faixa de grau, concentração do envio e contatos de um hub.}
+  \includegraphics[width=\textwidth]{descobertas.pdf}
+  \caption{Comportamento dos hubs. (a) Para cada usuário, número de pessoas para quem enviou contra número de pessoas de quem recebeu (mais um): os 20 maiores emissores enviam para muito mais gente do que recebem. (b) Fração de contatos que respondem, por faixa de grau.}
+  \Description{Dois painéis: dispersão do número de pessoas para quem cada usuário enviou contra de quem recebeu, com os 20 maiores emissores destacados, e curva da reciprocidade por faixa de grau.}
   \label{fig:desc}
 \end{figure*}
 
-\subsection{Questão extra: modelos clássicos}
-Comparamos a rede com os modelos de Erd\H{o}s--R\'enyi, Barab\'asi--Albert~\cite{barabasi1999} e Watts--Strogatz~\cite{watts1998}, com o mesmo número de vértices e arestas aproximado (Tabela~\ref{tab:modelos}, Figura~\ref{fig:mod}). Nenhum se ajusta bem. O ER subestima o agrupamento e os hubs ($C=0{,}008$, $k_{\max}\approx29$); o BA produz hubs (cerca de 197) mas agrupamento baixo ($C\approx0{,}031$); o WS exagera o agrupamento ($C=0{,}51$) e tem caminhos mais longos ($L=4{,}14$). O nulo de mesmos graus é o mais próximo ($C=0{,}089$, $L=3{,}03$), o que reforça que a heterogeneidade de graus explica a maior parte da estrutura.
+Ao examinar quem são os hubs, a descoberta mais interessante foi que eles se comportam como remetentes em massa, e não como participantes de conversas. Entre os 20 usuários de maior grau, o grau de saída médio é cerca de 159 contra 80 de entrada, e apenas 43\% de seus destinatários respondem, contra 64\% no conjunto da rede. A reciprocidade cai com o grau, de 74--79\% para graus entre 2 e 31, até 44\% para grau $\ge128$ (Figura~\ref{fig:desc}). Os 5\% de usuários que mais enviam produzem \topCincoMsgs{} das mensagens. Interpretamos esse padrão como o de remetentes em massa: os hubs enviam muito mais do que recebem e a maior parte dos destinatários não responde, o que combina com a assortatividade negativa (hubs ligados a usuários de grau baixo) e com a fragilidade a ataques, já que a conectividade da rede depende de laços que não são recíprocos. Em vez de um conjunto de conversas simétricas, a rede se parece mais com uma difusão a partir de poucos emissores. Outros números apontam na mesma direção: 38\% dos pares trocam uma única mensagem, e os pares com 10 ou mais mensagens (cerca de 10\% dos pares) concentram 46\% do tráfego; nos 6.458 pares recíprocos, a mediana entre a primeira mensagem de cada sentido é de 3,9\,h. Esta é uma leitura dos números, e não uma comprovação, já que os dados não incluem o conteúdo das mensagens.
 
-\input{tabelas/modelos}
+\subsection{Comparação com modelos clássicos}
+Por fim, comparamos a rede com os modelos de Erd\H{o}s--R\'enyi, Barab\'asi--Albert~\cite{barabasi1999} e Watts--Strogatz~\cite{watts1998}, com o mesmo número de vértices e arestas aproximado (Tabela~\ref{tab:modelos}). Nenhum se ajusta bem. O ER subestima o agrupamento e os hubs ($C=0{,}008$, $k_{\max}\approx29$); o BA produz hubs (cerca de 197) mas agrupamento baixo ($C\approx0{,}031$); o WS exagera o agrupamento ($C=0{,}51$) e tem caminhos mais longos ($L=4{,}14$). O nulo de mesmos graus é o mais próximo ($C=0{,}089$, $L=3{,}03$), o que reforça que a heterogeneidade de graus explica a maior parte da estrutura.
 
-\begin{figure*}[t]
-  \centering
-  \includegraphics[width=\textwidth]{figuras/modelos_classicos.pdf}
-  \caption{Rede observada e modelos clássicos: distribuição de graus, $C$ e $L$.}
-  \Description{Comparação visual entre a rede e os modelos ER, BA e WS.}
-  \label{fig:mod}
-\end{figure*}
+\begin{table}[t]
+  \caption{Grafo observado e modelos clássicos de mesma ordem e tamanho aproximado (médias de réplicas). KS: distância de Kolmogorov--Smirnov entre as distribuições de grau.}
+  \label{tab:modelos}
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    Modelo & $C$ & $L$ & $k_{\max}$ & DP grau & KS \\
+    \midrule
+    Observado & 0,110 & 3,06 & 255 & 24,5 & 0,00 \\
+    \midrule
+    Erd\H{o}s--R\'enyi & 0,008 & 3,08 & 29 & 3,8 & 0,55 \\
+    Barab\'asi--Albert & 0,031 & 2,91 & 197 & 14,5 & 0,54 \\
+    Watts--Strogatz & 0,509 & 4,14 & 19 & 1,2 & 0,64 \\
+    \midrule
+    Mesmos graus & 0,089 & 3,03 & 255 & 24,5 & 0,00 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 %--------------------------------------------------------------------
+\FloatBarrier
 \section{Discussão crítica}
-\paragraph{Limitações.} (i) Ao colapsar o grafo temporal em um grafo estático, perdemos a ordem das mensagens; caminhos que passam por arestas ``fora de ordem no tempo'' podem não ser realizáveis. (ii) O peso $w=1/m$ é uma escolha de modelagem, e outras funções dariam outras distâncias ponderadas, ainda que não alterem as medidas não ponderadas. (iii) As razões de mundo pequeno dependem do nulo; reportamos dois. (iv) Os tempos da Parte II dependem do computador e do interpretador, e as inclinações log-log sofrem do efeito de amostras de vértices cuja densidade varia. (v) A rede cobre um comportamento específico de uma rede social de estudantes.
+\paragraph{Perda da ordem temporal.} Ao colapsar o grafo temporal em um grafo estático, perdemos a ordem das mensagens. Os caminhos mínimos (diâmetro \diametro, caminho médio \caminhoMedio) e a conectividade foram calculados como se qualquer sequência de arestas pudesse ser percorrida, mas em uma rede de mensagens um caminho $u\to v\to w$ só existe de fato se a mensagem de $u$ para $v$ vier antes da de $v$ para $w$. As distâncias reais, com restrição temporal, são, portanto, iguais ou maiores que as reportadas, e os caminhos curtos da análise de small-world devem ser lidos como um limite inferior. Além disso, \primeirasOitoSem{} das mensagens ocorrem nas oito primeiras semanas, de modo que o grafo estático resume sobretudo uma fase inicial intensa.
+
+\paragraph{Escolha do peso.} O peso $w=1/m$ aproxima os pares que conversam mais. Ele afeta apenas as medidas ponderadas (Dijkstra, Bellman--Ford, Floyd--Warshall, Prim e Kruskal, inclusive o peso da árvore geradora mínima, \pesoMST{}); as medidas da Parte I e da Parte III usam distâncias não ponderadas e não mudam. Outra função de peso alteraria as distâncias ponderadas e a árvore geradora mínima, mas não os resultados estruturais.
+
+\paragraph{Dependência do modelo nulo.} A conclusão sobre a propriedade small-world depende do nulo: contra $G(n,m)$, $\sigma\approx\sigmaER$ e a rede é claramente small-world; contra o nulo de mesmos graus, $\sigma\approx\sigmaGrau$ e só cerca de 24\% do agrupamento excede o esperado. Reportamos os dois, mas eles respondem a perguntas diferentes: o primeiro, se a rede difere de um grafo aleatório qualquer; o segundo, se difere de um grafo aleatório com os mesmos hubs. As distâncias dos nulos foram estimadas com 500 fontes, o que acrescenta uma pequena incerteza a $L/L_{al}$.
+
+\paragraph{Peso dos hubs emissores.} Poucos usuários concentram o envio: os 5\% que mais enviam produzem \topCincoMsgs{} das mensagens. Isso influencia a robustez, pois os ataques por grau, intermediação e PageRank atingem justamente esses usuários e fragmentam a rede, enquanto a remoção aleatória quase não a afeta ($A=\AAleatorio$). Influencia também a leitura da assortatividade: o valor negativo (\assortatividade) indica que hubs se ligam a usuários de grau baixo, mas o grafo não dirigido que usamos nessa medida não distingue quem envia de quem recebe; é a análise de reciprocidade da Seção~\ref{sec:desc} que mostra que esses hubs enviam em massa.
+
+\paragraph{Outras limitações.} Os tempos da Parte II dependem do computador e do interpretador, e as inclinações do ajuste log-log são aproximadas, porque as amostras de vértices alteram a razão $m/n$. Por fim, a rede cobre apenas \nDias{} dias de uma rede social de estudantes específica, e os resultados podem não se generalizar para outras redes de mensagens.
 
 \paragraph{Reprodutibilidade.} O pipeline completo roda por \texttt{scripts/run\_all.py}, com semente fixa; os números do texto vêm de \texttt{macros.tex} e das tabelas geradas, e não foram digitados à mão.
 
+\FloatBarrier
 \section{Conclusão}
 O grafo CollegeMsg é esparso, assortativo negativo e de caminhos curtos. Seu agrupamento é alto em relação ao acaso, mas em grande parte consequência da distribuição de graus; a lei de potência é rejeitada, e a lognormal ajusta melhor a cauda. A rede resiste a falhas aleatórias, mas se fragmenta rapidamente sob ataques a hubs, que são remetentes em massa com baixa reciprocidade. Os algoritmos implementados concordam com o NetworkX, e os tempos medidos são compatíveis com as complexidades teóricas, com ressalvas sobre o ajuste log-log. Como trabalho futuro, uma análise que respeite a ordem temporal (caminhos temporais) e a busca de comunidades.
 
 %\begin{acks}
 %\end{acks}
 
+\FloatBarrier
 \bibliographystyle{ACM-Reference-Format}
-\bibliography{refs}
+\bibliography{sample-base}
 
 \end{document}
