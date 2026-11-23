@@ -1,0 +1,6 @@
+Etapa,Vértices,Arestas,Observação
+1. Arquivo original (1 linha = 1 mensagem),1899,59835,"grafo temporal, multigrafo dirigido"
+2. Remoção de auto-loops,1899,59835,0 auto-loops removidos
+3. Grafo estático simples dirigido,1899,20296,pares (origem→destino) únicos
+4. Grafo estático simples não dirigido,1899,13838,"aresta {u,v} se u→v ou v→u"
+5. Maior componente conexa,1893,13835,6 vértices fora (pares isolados)
